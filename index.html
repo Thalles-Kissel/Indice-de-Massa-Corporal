@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+</head>
+<body id="mensagem">
+    <header>
+        <h1>Peso ideal</h1>
+
+        <button id="mensagem" onclick="mudarCor()">Modo Escuro</button>
+    </header>
+
+    <main>
+        <section class="content">
+            <h1>Como saber seu peso ideal?</h1>
+            <p id="texto">O peso ideal pode ser uma referência pelo IMC, que calcula o peso dividido pela altura ao quadrado, com um valor saudável entre 18,5 e 24,9. Porém, como cada corpo é único, outros fatores como músculo, idade e atividade física também são importantes. Consulte um profissional para entender melhor o que é saudável</p>
+        </section>
+
+        <section class="Calculadora">
+
+            <h1>Indice de Massa Corporal</h1>
+
+            <form id="texto" action="#">
+                <div>
+                    <label for="altura"> Altura:</label>
+                    <input type="number" name="altura" id="altura" placeholder="Digite sua altura">
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="peso"> Peso (kg):</label>
+                    <input type="number" name="peso" id="peso" placeholder="Digite seu peso">
+                </div>
+
+            </form>
+
+            <button id="mensagem" onclick="calcImc()">Calcular IMC</button>
+
+            <p id="texto">Seu Indice de massa corporal é: <span id="resultado"></span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;2024 | Thalles Kissel</p>
+    </footer>
+
+    <script>
+        function calcImc()
+        {
+            const altura = parseFloat(document.getElementById("altura").value);
+
+            const peso = parseFloat(document.getElementById("peso").value);
+
+            const resultado = peso / altura * altura
+
+            document.getElementById("resultado").textContent = resultado.toFixed(2)
+
+        }
+
+        function mudarCor()
+        {
+            const texto = document.getElementById("texto");
+
+            const message = document.getElementById("mensagem");
+
+            message.style.backgroundColor = message.style.backgroundColor === "white" ? "black" : "white";
+
+            message.style.color = message.style.color === "black" ? "white" : "black";
+
+            texto.style.backgroundColor = texto.style.backgroundColor === "violet" ? "violet" : "violet";
+        }
+    </script>
+
+</body>
+</html>
